@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Peter Kurfer on 11/19/17.
+ * model.Meal models an individual meal; the API will return a List<Meal> which is our model
  */
 
 public class Meal {
@@ -50,6 +50,23 @@ public class Meal {
 
 	public void setNotes(List<String> notes) {
 		this.notes = notes;
+	}
+
+	public boolean isVegetarian() {
+		if (category.toLowerCase().equals("vegetarisch")
+			|| category.toLowerCase().equals("vegan")) {
+			return true;
+		}
+		return false;
+
+		/* for other cafeterias than 269, it might be on the notes...
+		// make sure there's no meat in the notes
+		boolean containsMeat = false;
+		for(String s : notes){
+			containsMeat = containsMeat || s.contains("fleisch") || s.contains("geflügel");
+		}
+		return !containsMeat;
+		*/
 	}
 
 	@Override
