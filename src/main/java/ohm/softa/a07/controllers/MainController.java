@@ -46,7 +46,7 @@ public class MainController implements Initializable {
 	private CheckBox chkVegetarian;
 
 	@FXML
-	private ListView<String> mealsList;
+	private ListView<Meal> mealsList;
 
 	private ObservableList<Meal> meals;
 
@@ -59,7 +59,7 @@ public class MainController implements Initializable {
 		openMensaAPI = retrofit.create(OpenMensaAPI.class);
 	}
 
-	@Override
+	/*@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// set the event handler (callback)
 		btnRefresh.setOnAction(new EventHandler<ActionEvent>() {
@@ -70,6 +70,14 @@ public class MainController implements Initializable {
 				mealsList.setItems(list);
 			}
 		});
+	}*/
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+		logger.debug("Initializing the MainController");
+		loadMensaData();
+
+		// hook up our model
+		meals = mealsList.getItems();
 	}
 
 	// Add event handlers for both and try modifying the content of the above list;
@@ -134,5 +142,4 @@ public class MainController implements Initializable {
 			}
 		});
 	}
-
 }
