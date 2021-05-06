@@ -53,11 +53,8 @@ public class Meal {
 	}
 
 	public boolean isVegetarian() {
-		if (category.toLowerCase().equals("vegetarisch")
-			|| category.toLowerCase().equals("vegan")) {
-			return true;
-		}
-		return false;
+		return (category.toLowerCase().equals("vegetarisch")
+			|| category.toLowerCase().equals("vegan"));
 
 		/* for other cafeterias than 269, it might be on the notes...
 		// make sure there's no meat in the notes

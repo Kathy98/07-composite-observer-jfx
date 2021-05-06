@@ -70,7 +70,12 @@ class OpenMensaAPITests {
 
 		// TODO execute the call synchronously
 		/* execute the call synchronous */
-		Response<List<Meal>> mealsResponse = mealsCall.execute();
+		Response<List<Meal>> mealsResponse = null;
+		try {
+			mealsResponse = mealsCall.execute();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		// TODO unwrap the body
 		/* unwrap the response */

@@ -45,11 +45,14 @@ public class MainController implements Initializable {
 	@FXML
 	private CheckBox chkVegetarian;
 
+	// Anzeige: Wollen an das Datenelement ran und modifizieren können
 	@FXML
 	private ListView<Meal> mealsList;
 
+	// Model:
 	private ObservableList<Meal> meals;
 
+	// Idee: Immer wenn Model sich ändert, gibt dieser bescheid, damit sich Anzeige ändert
 	public MainController() {
 		Retrofit retrofit = new Retrofit.Builder()
 			.addConverterFactory(GsonConverterFactory.create())
